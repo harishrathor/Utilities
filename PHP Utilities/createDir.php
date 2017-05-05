@@ -8,9 +8,7 @@ class DirUtility{
 		$this->parent_dir=$full_root_path;
 		$parsed_json=json_decode($json);
 		$parsed_json_array=(array)$parsed_json;
-		print_r($parsed_json_array);
 		$this->makeDirs('',$parsed_json_array,'');
-
 	}
 
 	function makeDirs($key_as_fol_name,$val_as_nested_dir,$parent_dir){
@@ -24,7 +22,6 @@ class DirUtility{
 					print_r(error_get_last());
 				}
 				else{
-					print("Parent dir is ".$parent_dir."\n");
 					print("Just created directory ".$this->cur_dir."\n");
 				}
 
@@ -35,7 +32,6 @@ class DirUtility{
 		else {
 				$parent_dir=$this->cur_dir;
 				foreach ($val_as_nested_dir as $key => $value){
-					print("\n".$key."\n");
 						$this->makeDirs($key,$value,$parent_dir);
 					}
 
